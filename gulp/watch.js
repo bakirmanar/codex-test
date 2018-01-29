@@ -8,22 +8,22 @@ var SRC = options.SRC;
 
 gulp.task('watch', function () {
     // Watch Sass
-    gulp.watch([SRC + '/assets-cp/scss/*.scss',
-        SRC + '/assets-cp/scss/**/*.scss',
-        SRC + '/assets-cp/js/*.scss',
-        SRC + '/assets-cp/js/**/*.scss'], ['sass-watch']);
+    gulp.watch([SRC + '/assets/scss/*.scss',
+        SRC + '/assets/scss/**/*.scss',
+        SRC + '/assets/js/*.scss',
+        SRC + '/assets/js/**/*.scss'], ['sass-watch']);
 
     // Watch JavaScript
-    gulp.watch([SRC + '/assets-cp/js/**/*.js',
-        SRC + '/assets-cp/js/*.js'], ['js-watch']);
+    gulp.watch([SRC + '/assets/js/**/*.js',
+        SRC + '/assets/js/*.js'], ['js-watch']);
 
     // Watch Angular templates
-    gulp.watch([SRC + '/assets-cp/js/**/*.html'], ['templates-watch']);
+    gulp.watch([SRC + '/assets/js/**/*.html'], ['templates-watch']);
 
     // Watch static files
     gulp.watch([SRC + '/**/*.*',
         '!' + SRC + '/**/*.js',
-        '!' + SRC + '/assets-cp/js/**/*.html',
+        '!' + SRC + '/assets/js/**/*.html',
         '!' + SRC + '/**/*.scss'], ['staticfiles-watch']);
 
     // Watch MODULES

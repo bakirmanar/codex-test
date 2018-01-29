@@ -1,10 +1,10 @@
 let express = require('express');
 
-// series
-let seriesService = require('./services/seriesService');
-let seriesRouter = express.Router();
-seriesRouter.get('/', seriesService.getSeriesData);
-exports.seriesRouter = seriesRouter;
+// serials
+let serialsService = require('./services/serialsService');
+let serialsRouter = express.Router();
+serialsRouter.get('/', serialsService.getserialsData);
+exports.serialsRouter = serialsRouter;
 
 // episodes
 let episodesService = require('./services/episodesService');
@@ -14,6 +14,6 @@ exports.episodesRouter = episodesRouter;
 
 // router
 let apiRouter = express.Router();
-apiRouter.use('/series', seriesRouter);
+apiRouter.use('/serials', serialsRouter);
 apiRouter.use('/episodes', episodesRouter);
 exports.apiRouter = apiRouter;

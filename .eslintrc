@@ -1,0 +1,28 @@
+{
+  "extends": "eslint-config-airbnb-es5",
+  "rules": {
+    "linebreak-style": 0,
+    "indent": ["error", 4, {
+      "FunctionDeclaration": {
+        "parameters": "off"
+      }
+    }],
+    "no-undef": 0,
+    "func-names": 0,
+    "comma-dangle": ["error", {
+      "objects": "always"
+    }],
+    "max-len": ["error", 120, {
+      "ignoreComments": true,
+      "ignoreTrailingComments": true,
+      "ignoreUrls": true,
+      "ignoreRegExpLiterals": true
+    }],
+    "valid-jsdoc": ["error", {
+      "requireParamDescription": false,
+      "requireReturnDescription": false,
+      "requireReturn": false
+    }],
+    "no-loop-func": 0
+  }
+}

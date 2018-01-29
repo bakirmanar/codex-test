@@ -1,0 +1,336 @@
+//----------DEFINES-----------
+$mainThemeColor: #5c6bc0;
+$secondaryThemeColor: #3f51b5;
+
+html {
+  overflow-y: auto;
+  font-size: 62.5%;
+}
+
+body {
+  background-color: #eeeeee;
+  height: 100%;
+  font-size: 1.6rem;
+  font-family: 'Source Sans Pro', sans-serif;
+  overflow: hidden;
+  color: #6a6a6a;
+}
+//----------END DEFINES-----------
+
+//----------CHIPS DEFINES-----------
+.chip {
+  display: inline-block;
+  border-radius: 15px;
+  margin: 5px;
+  padding: 5px 10px;
+  line-height: 20px;
+  background: #6a6a6a;
+  vertical-align: top;
+  color: #fff;
+}
+//----------CHIP DEFINES-----------
+
+//----------MIXINS-----------
+@mixin breakpoint($point) {
+  @if $point == medium {
+    @media (max-width: 1279px) {
+      @content;
+    }
+  } @else if $point == small {
+    @media (max-width: 959px) {
+      @content;
+    }
+  } @else if $point == xsmall {
+    @media (max-width: 599px) {
+      @content;
+    }
+  } @else if $point { // allows custom breakpoints
+    @media (max-width: $point) {
+      @content;
+    }
+  }
+}
+@mixin mouseEvents() {
+  &:not([disabled]):hover,
+  &:not([disabled]):focus {
+    @content;
+  }
+}
+//----------END MIXINS-----------
+
+//----------BUTTONS-----------
+.md-button {
+  min-height: 36px;
+  min-width: 125px;
+  margin: 0;
+  padding: 0 20px;
+  border: 1px solid transparent;
+  border-radius: 20px;
+  backface-visibility: hidden;
+  line-height: 34px;
+  font-size: 1.6rem;
+  text-transform: uppercase;
+  transition-property: box-shadow, background-color, opacity, border-color, color;
+  transition-duration: .4s;
+  transition-timing-function: cubic-bezier(.25, .8, .25, 1);
+
+  &[disabled] {
+    opacity: 0.8;
+    cursor: not-allowed;
+  }
+}
+
+.button-link {
+  color: $mainThemeColor;
+  text-decoration: underline;
+  cursor: pointer;
+  font-weight: 700;
+  padding: 20px 0 30px;
+  &:hover {
+    opacity: 0.87;
+  }
+  &:focus,
+  &:active {
+    outline: none;
+  }
+}
+//----------END BUTTONS-----------
+
+
+//----------HEADER-----------
+.main-label {
+  display: inline-block;
+  margin-bottom: 2px;
+}
+
+//----------END HEADER-----------
+
+
+//----------CONTENT-----------
+.page-title {
+  box-sizing: border-box;
+  max-width: 1000px;
+  width: 100%;
+  margin: 65px auto;
+  line-height: 1;
+  font-weight: 200;
+  font-size: 6.9rem;
+}
+
+.page-subtitle {
+  font-weight: 400;
+  font-size: 2rem;
+  margin-bottom: 50px;
+  color: #919191;
+}
+
+.content-container {
+  box-sizing: border-box;
+  max-width: 950px;
+  width: 100%;
+  margin: 20px auto;
+  &.small {
+    max-width: 640px;
+  }
+
+  .content-card {
+    position: relative;
+    padding: 45px 40px 40px;
+    border-radius: 2px;
+    background: #fff;
+    box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.09);
+    overflow: hidden;
+
+    .content-card-container {
+      padding: 45px 40px 40px;
+    }
+
+    .content-card-title {
+      margin: 0;
+      font-size: 2.6rem;
+      font-weight: 700;
+      color: #434343;
+
+      span {
+        font-weight: 400;
+      }
+    }
+  }
+
+  .left-part,
+  .right-part {
+    display: inline-block;
+    vertical-align: top;
+  }
+
+  .content-card-footer {
+    margin-top: 1px;
+    padding: 20px 40px;
+    border-radius: 2px;
+    background: #fff;
+    box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.09);
+  }
+
+  .divider {
+    border: none;
+    border-top: 1px solid #eaeaea;
+    margin: 60px 0;
+
+    &.zero-margin-top {
+      margin-top: 0;
+    }
+  }
+
+  .left-gutter {
+    padding-left: 30px;
+  }
+  md-input-container.left-gutter {
+    label {
+      padding-left: 30px;
+    }
+    &.md-input-has-value {
+      label {
+        padding-left: 40px;
+      }
+    }
+    &.md-input-focused {
+      label {
+        padding-left: 40px;
+      }
+    }
+  }
+  .right-gutter {
+    padding-right: 30px;
+  }
+}
+
+.bottom-controls .md-button + .md-button {
+  margin-left: 20px;
+}
+
+@include breakpoint(medium) {
+  .page-title {
+    max-width: 870px;
+  }
+  .content-container {
+    max-width: 870px;
+  }
+}
+
+@include breakpoint(small) {
+  .color-bg {
+    background: -webkit-gradient(linear, left top, left bottom, from(#5c6dbb), to(#7c5bbd));
+    background: linear-gradient(to bottom, #5c6dbb, #7c5bbd);
+  }
+  .page-title {
+    margin: 35px auto;
+    font-size: 4.2rem;
+  }
+
+  .content-container {
+    max-width: 510px;
+    &.small {
+      max-width: 600px;
+    }
+    .content-card {
+      padding: 20px;
+    }
+    .right-gutter {
+      padding-right: 10px;
+    }
+    md-input-container.left-gutter {
+      padding-left: 10px;
+      label {
+        padding-left: 10px;
+      }
+      &.md-input-has-value {
+        label {
+          padding-left: 15px;
+          //TODO ДЛЯ ЛЭЙБЛОВ СДЕЛАТь TRANSFORM А НЕ ПЭДИНГ
+        }
+      }
+      &.md-input-focused {
+        label {
+          padding-left: 15px;
+        }
+      }
+    }
+  }
+}
+
+@include breakpoint(xsmall) {
+  .content-container {
+    max-width: none;
+    background: #fff;
+    margin-top: 0;
+
+    .content-card {
+      padding: 20px;
+      box-shadow: none;
+    }
+    .right-gutter {
+      padding-right: 0;
+    }
+    md-input-container.left-gutter {
+      padding-left: 0;
+      label {
+        padding-left: 0
+      }
+      &.md-input-has-value {
+        label {
+          padding-left: 0;
+        }
+      }
+      &.md-input-focused {
+        label {
+          padding-left: 0;
+        }
+      }
+    }
+    .page-title,
+    .page-subtitle {
+      padding: 0 20px;
+    }
+  }
+}
+//----------END CONTENT-----------
+
+//----------SERIAL-----------
+.serial-updated {
+  font-size: 1.2rem;
+}
+.serial-info {
+  margin-top: 20px;
+
+  td:first-child {
+    padding-right: 20px;
+    vertical-align: top;
+  }
+
+  .summary-info {
+    p {
+      margin-top: 0;
+    }
+  }
+
+  .genres-info {
+    td:first-child {
+      padding-top: 11px;
+    }
+  }
+}
+//----------END SERIAL-----------
+
+//----------RATING-----------
+.rating {
+  md-progress-linear {
+    display: inline-block;
+    width: 100px;
+    margin: 9px 10px 0 0;
+    vertical-align: top;
+  }
+  .rating-value {
+    vertical-align: top;
+  }
+}
+//----------END RATING-----------

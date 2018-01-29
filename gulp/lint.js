@@ -10,8 +10,8 @@ gulp.task('lint', function () {
         useEslintrc: true,
     };
 
-    return gulp.src([SRC + '/assets-cp/js/**/*.js',
-        SRC + '/assets-cp/js/*.js'])
+    return gulp.src([SRC + '/assets/js/**/*.js',
+        SRC + '/assets/js/*.js'])
         .pipe($.eslint(lintOptions))
         .pipe($.eslint.format());
 });

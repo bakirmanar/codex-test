@@ -12,7 +12,7 @@ gulp.task('clean', function(cb) {
 
 /*
 gulp.task('clean:templates', function(cb){
-  rimraf('./build/assets-cp/js/templates.js', cb);
+  rimraf('./build/assets/js/templates.js', cb);
 });
 
 gulp.task('clean:package', function(cb){

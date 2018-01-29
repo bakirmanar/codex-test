@@ -48,10 +48,17 @@ global.gulpOptions = {
     DIST: './dist',
     SERVE_DIST: './dist',
     LIBS_JS: [
-
+      './node_modules/jquery/dist/jquery.min.js',
+      './node_modules/angular/angular.js',
+      './node_modules/angular-aria/angular-aria.min.js',
+      './node_modules/angular-animate/angular-animate.min.js',
+      './node_modules/@uirouter/angularjs/release/angular-ui-router.js',
+      './node_modules/angular-sanitize/angular-sanitize.min.js',
+      './node_modules/angular-material/angular-material.min.js',
     ],
     LIBS_CSS: [
-
+      './node_modules/angular-material/angular-material.min.css',
+      './node_modules/angular-material-icons/angular-material-icons.css',
     ],
     MODULES: [
     ],

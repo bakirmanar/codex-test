@@ -12,9 +12,9 @@ gulp.task('sass', function () {
     var cssnano = $.if(global.isProduction, $.cssnano());
 
     return gulp.src(
-        [SRC + '/assets-cp/scss/*.scss',
-            SRC + '/assets-cp/js/*.scss',
-            SRC + '/assets-cp/js/**/*.scss'])
+        [SRC + '/assets/scss/*.scss',
+            SRC + '/assets/js/*.scss',
+            SRC + '/assets/js/**/*.scss'])
         .pipe($.plumber())
         .pipe($.concat('styles.min.css'))
         .pipe($.sass({
@@ -26,5 +26,5 @@ gulp.task('sass', function () {
         }))
         .pipe(cssnano)
         .pipe(browserSync.stream())
-        .pipe(gulp.dest(DIST + '/assets-cp/css/'));
+        .pipe(gulp.dest(DIST + '/assets/css/'));
 });

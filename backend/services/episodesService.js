@@ -1,4 +1,4 @@
-let episodesData = require('../../data/series.json')[0]._embedded.episodes;
+let episodesData = require('../../data/serials.json')[0]._embedded.episodes;
 
 exports.getEpisodesData = function (req, res, next) {
   let season = Number.parseInt(req.query.season) ;

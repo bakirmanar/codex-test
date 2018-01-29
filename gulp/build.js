@@ -46,17 +46,17 @@ gulp.task('js:app', function () {
     var sourcemapsWrite = $.if(!global.isProduction, $.sourcemaps.write('.'));
     var replace = $.if(global.isProduction, $.replace('Dev version', appVersion));
 
-    return gulp.src([SRC + '/assets-cp/js/**/*.js',
-        SRC + '/assets-cp/js/*.js'], {base: SRC})
+    return gulp.src([SRC + '/assets/js/**/*.js',
+        SRC + '/assets/js/*.js'], {base: SRC})
         .pipe(sourcemapsInit)
         .pipe($.plumber())
         .pipe($.ngAnnotate())
-        .pipe($.directiveReplace({root: SRC + '/assets-cp/js'}))
+        .pipe($.directiveReplace({root: SRC + '/assets/js'}))
         .pipe($.concat('scripts.min.js'))
         .pipe(replace)
         .pipe(uglify)
         .pipe(sourcemapsWrite)
-        .pipe(gulp.dest(DIST + '/assets-cp/js/'));
+        .pipe(gulp.dest(DIST + '/assets/js/'));
 });
 
 gulp.task('js:libs', function () {
@@ -70,7 +70,7 @@ gulp.task('js:libs', function () {
         .pipe($.concat('libs.min.js'))
         .pipe(uglify)
         .pipe(sourcemapsWrite)
-        .pipe(gulp.dest(DIST + '/assets-cp/js/'));
+        .pipe(gulp.dest(DIST + '/assets/js/'));
 });
 
 gulp.task('js', ['js:app', 'js:libs']);
@@ -78,5 +78,5 @@ gulp.task('js', ['js:app', 'js:libs']);
 gulp.task('css', function () {
     return gulp.src(LIBS_CSS)
         .pipe($.concat('vendor.min.css'))
-        .pipe(gulp.dest(DIST + '/assets-cp/css/'));
+        .pipe(gulp.dest(DIST + '/assets/css/'));
 });
