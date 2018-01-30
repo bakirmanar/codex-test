@@ -12,8 +12,13 @@ body {
   height: 100%;
   font-size: 1.6rem;
   font-family: 'Source Sans Pro', sans-serif;
-  overflow: hidden;
   color: #6a6a6a;
+}
+
+.flex-placeholder {
+  height: 0;
+  box-shadow: none;
+  border: 0;
 }
 //----------END DEFINES-----------
 
@@ -58,44 +63,6 @@ body {
 }
 //----------END MIXINS-----------
 
-//----------BUTTONS-----------
-.md-button {
-  min-height: 36px;
-  min-width: 125px;
-  margin: 0;
-  padding: 0 20px;
-  border: 1px solid transparent;
-  border-radius: 20px;
-  backface-visibility: hidden;
-  line-height: 34px;
-  font-size: 1.6rem;
-  text-transform: uppercase;
-  transition-property: box-shadow, background-color, opacity, border-color, color;
-  transition-duration: .4s;
-  transition-timing-function: cubic-bezier(.25, .8, .25, 1);
-
-  &[disabled] {
-    opacity: 0.8;
-    cursor: not-allowed;
-  }
-}
-
-.button-link {
-  color: $mainThemeColor;
-  text-decoration: underline;
-  cursor: pointer;
-  font-weight: 700;
-  padding: 20px 0 30px;
-  &:hover {
-    opacity: 0.87;
-  }
-  &:focus,
-  &:active {
-    outline: none;
-  }
-}
-//----------END BUTTONS-----------
-
 
 //----------HEADER-----------
 .main-label {
@@ -107,6 +74,10 @@ body {
 
 
 //----------CONTENT-----------
+.wrapper,
+md-content {
+  height: 100%;
+}
 .page-title {
   box-sizing: border-box;
   max-width: 1000px;
@@ -296,6 +267,17 @@ body {
 //----------END CONTENT-----------
 
 //----------SERIAL-----------
+.serial {
+  color: #777;
+  text-decoration: none;
+  transition: box-shadow .3s;
+
+  @include mouseEvents() {
+    box-shadow: 0 3px 5px -1px rgba(0,0,0,.2), 0 6px 10px 0 rgba(0,0,0,.14), 0 1px 18px 0 rgba(0,0,0,.12);
+
+  }
+}
+
 .serial-updated {
   font-size: 1.2rem;
 }
@@ -319,6 +301,10 @@ body {
     }
   }
 }
+.serial-image {
+  max-width: 100%;
+  height: auto;
+}
 //----------END SERIAL-----------
 
 //----------RATING-----------
@@ -334,3 +320,37 @@ body {
   }
 }
 //----------END RATING-----------
+
+//----------EPISODES-----------
+.episode-list {
+  .episode-preview {
+    padding: 10px;
+    transition-duration: .3s;
+
+    &:hover {
+      box-shadow: 0 3px 5px -1px rgba(0,0,0,.2), 0 6px 10px 0 rgba(0,0,0,.14), 0 1px 18px 0 rgba(0,0,0,.12);
+    }
+  }
+
+  .episode-preview-description {
+    position: relative;
+    margin: 0;
+    max-height: 80px;
+    overflow: hidden;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 50%;
+      height: 20px;
+      background: linear-gradient(to right, rgba(255,255,255,0), rgba(255,255,255,1));
+    }
+
+    p {
+      margin: 0;
+    }
+  }
+}
+//----------END EPISODES-----------

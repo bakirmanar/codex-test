@@ -14,9 +14,6 @@ function ratingController($scope) {
   $scope.$watch(function () {
     return vm.max
   }, function (n, o) {
-    console.log(n);
     !n && (vm.max = 100);
-
-    console.log(vm.max);
   });
 }

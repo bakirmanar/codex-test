@@ -1,0 +1,66 @@
+<div class="content-container" flex="100">
+    <a href="/" class="md-button md-raised md-primary" ng-click="vm.go('serials', $event)">Back</a>
+
+    <h2 class="page-title">{{vm.serial.name}}</h2>
+
+    <div class="content-card" layout="row" layout-wrap="wrap">
+        <div class="left-part" flex="30">
+            <img ng-src="{{vm.serial.image.medium}}" class="serial-image" alt="{{vm.serial.name}}">
+        </div>
+        <div class="right-part" flex="70" >
+            <table class="serial-info">
+                <tr class="genres-info">
+                    <td>Genres:</td>
+                    <td>
+                        <div class="chip" ng-repeat="genre in vm.serial.genres">{{genre}}</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Premiered:</td>
+                    <td>{{vm.serial.premiered | date:'MM/dd/yyyy'}}</td>
+                </tr>
+                <tr>
+                    <td>Status:</td>
+                    <td>{{vm.serial.status}}</td>
+                </tr>
+                <tr>
+                    <td>Language:</td>
+                    <td>{{vm.serial.language}}</td>
+                </tr>
+                <tr class="rating-info">
+                    <td>Rating:</td>
+                    <td><rating value="vm.serial.rating.average" max="10"></rating></td>
+                </tr>
+                <tr class="summary-info">
+                    <td>Summary:</td>
+                    <td ng-bind-html="vm.serial.summary"></td>
+                </tr>
+            </table>
+            <span class="serial-updated">Last update: {{vm.serial.updated | date:'MM/dd/yyyy'}}</span>
+        </div>
+        <div class="episodes-header" flex="100" layout="row" layout-align="space-between stretch">
+            <h3>Episodes</h3>
+            <div class="episodes-filter">
+                <md-input-container>
+                    <label>Search by name</label>
+                    <input ng-model="vm.search.name" />
+                </md-input-container>
+                <md-input-container>
+                    <label>Season</label>
+                    <md-select ng-model="vm.selectedSeason" ng-change="vm.onSeasonSelect()">
+                        <md-option ng-repeat="season in vm.seasons" ng-value="season">{{season}}</md-option>
+                    </md-select>
+                    <span class="md-errors-spacer"></span>
+                </md-input-container>
+            </div>
+        </div>
+        <div class="episode-list" layout="row" layout-wrap="wrap" layout-align="space-between stretch">
+            <md-card flex="30" class="episode-preview" ng-repeat="episode in vm.episodes | filter:vm.search">
+                <img ng-src="{{episode.image.medium}}">
+                <h4>{{episode.name}}</h4>
+                <p class="episode-preview-description" ng-bind-html="episode.summary" title="{{episode.summary}}"></p>
+            </md-card>
+            <md-card flex="30" class="flex-placeholder"></md-card>
+        </div>
+    </div>
+</div>
