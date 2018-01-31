@@ -1,22 +1,24 @@
 let _ = require('underscore');
 
-let serialsData = require('../../data/serials.json');
+let serialModel = require('../models/mongoose').serialModel;
+let errorHandler = require('../libs/errorHandler');
+
 
 exports.getSerialsData = function (req, res, next) {
-  res.send(serialsData);
+  return serialModel.find((err, serials) => {
+    if (err) return errorHandler({code: 500}, req, res);
+
+    return res.json(serials);
+  });
 };
 
 exports.getSerialData = function (req, res, next) {
   let id = Number.parseInt(req.params.id);
-  let serial;
 
-  serial = _.find(serialsData, (item) => {
-    return item.id === id;
+  return serialModel.findOne({_id: id}, (err, serial) => {
+    if (err) return errorHandler({code: 500}, req, res);
+    if (!serial) return errorHandler({message: 'Not found', code: 404}, req, res);
+
+    return res.json(serial);
   });
-
-  if (serial) {
-    res.send(serial);
-  } else {
-    return res.status(404).send({error: "Not found"});
-  }
 };

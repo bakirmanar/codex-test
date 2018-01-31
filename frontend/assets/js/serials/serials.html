@@ -1,7 +1,7 @@
 <div class="content-container" flex="100">
-    <h2 class="page-title">Serials info</h2>
+    <h2 class="page-title">Serials list</h2>
 
-    <a ng-href="/serial/{{serial.id}}" ng-click="vm.go('serial', serial.id, $event)" ng-repeat="serial in vm.serials"
+    <a ng-href="/serial/{{serial._id}}" ng-click="vm.go('serial', serial._id, $event)" ng-repeat="serial in vm.serials"
        class="content-card serial" layout="row">
         <div class="left-part" flex="30">
             <img ng-src="{{serial.image.medium}}" alt="{{serial.name}}">
