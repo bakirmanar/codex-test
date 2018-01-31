@@ -8,34 +8,7 @@
             <img ng-src="{{vm.serial.image.medium}}" class="serial-image" alt="{{vm.serial.name}}">
         </div>
         <div class="right-part" flex="70" >
-            <table class="serial-info">
-                <tr class="genres-info">
-                    <td>Genres:</td>
-                    <td>
-                        <div class="chip" ng-repeat="genre in vm.serial.genres">{{genre}}</div>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Premiered:</td>
-                    <td>{{vm.serial.premiered | date:'MM/dd/yyyy'}}</td>
-                </tr>
-                <tr>
-                    <td>Status:</td>
-                    <td>{{vm.serial.status}}</td>
-                </tr>
-                <tr>
-                    <td>Language:</td>
-                    <td>{{vm.serial.language}}</td>
-                </tr>
-                <tr class="rating-info">
-                    <td>Rating:</td>
-                    <td><rating value="vm.serial.rating.average" max="10"></rating></td>
-                </tr>
-                <tr class="summary-info">
-                    <td>Summary:</td>
-                    <td ng-bind-html="vm.serial.summary"></td>
-                </tr>
-            </table>
+            <serial-info serial="vm.serial"></serial-info>
             <span class="serial-updated">Last update: {{vm.serial.updated | date:'MM/dd/yyyy'}}</span>
         </div>
         <div class="episodes-header" flex="100" layout="row" layout-align="space-between stretch">

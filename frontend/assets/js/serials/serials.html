@@ -9,34 +9,7 @@
         <div class="right-part" flex="70">
             <h3 class="content-card-title">{{serial.name}}</h3>
             <span class="serial-updated">Last update: {{serial.updated | date:'MM/dd/yyyy'}}</span>
-            <table class="serial-info">
-                <tr class="genres-info">
-                    <td>Genres:</td>
-                    <td>
-                        <div class="chip" ng-repeat="genre in serial.genres">{{genre}}</div>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Premiered:</td>
-                    <td>{{serial.premiered | date:'MM/dd/yyyy'}}</td>
-                </tr>
-                <tr>
-                    <td>Status:</td>
-                    <td>{{serial.status}}</td>
-                </tr>
-                <tr>
-                    <td>Language:</td>
-                    <td>{{serial.language}}</td>
-                </tr>
-                <tr class="rating-info">
-                    <td>Rating:</td>
-                    <td><rating value="serial.rating.average" max="10"></rating></td>
-                </tr>
-                <tr class="summary-info">
-                    <td>Summary:</td>
-                    <td ng-bind-html="serial.summary"></td>
-                </tr>
-            </table>
+            <serial-info serial="serial"></serial-info>
         </div>
     </a>
 </div>

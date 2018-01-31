@@ -12,4 +12,3 @@ angular.module('serialsAppModule', [
 function serialsAppController() {
     console.log('App version: ' + 'Dev version');
 }
-
