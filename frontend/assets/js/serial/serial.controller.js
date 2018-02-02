@@ -5,6 +5,7 @@ function serialController($stateParams, $state, serialsService) {
     var vm = this;
     vm.onSeasonSelect = onSeasonSelect;
     vm.go = go;
+    vm.setSeasonsData = setSeasonsData;
     vm.serial = {};
     vm.serials = [];
     vm.episodes = [];
