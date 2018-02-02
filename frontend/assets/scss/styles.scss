@@ -64,15 +64,6 @@ body {
 //----------END MIXINS-----------
 
 
-//----------HEADER-----------
-.main-label {
-  display: inline-block;
-  margin-bottom: 2px;
-}
-
-//----------END HEADER-----------
-
-
 //----------CONTENT-----------
 .wrapper,
 md-content {
@@ -86,13 +77,6 @@ md-content {
   line-height: 1;
   font-weight: 200;
   font-size: 6.9rem;
-}
-
-.page-subtitle {
-  font-weight: 400;
-  font-size: 2rem;
-  margin-bottom: 50px;
-  color: #919191;
 }
 
 .content-container {
@@ -112,10 +96,6 @@ md-content {
     box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.09);
     overflow: hidden;
 
-    .content-card-container {
-      padding: 45px 40px 40px;
-    }
-
     .content-card-title {
       margin: 0;
       font-size: 2.6rem;
@@ -133,50 +113,6 @@ md-content {
     display: inline-block;
     vertical-align: top;
   }
-
-  .content-card-footer {
-    margin-top: 1px;
-    padding: 20px 40px;
-    border-radius: 2px;
-    background: #fff;
-    box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.09);
-  }
-
-  .divider {
-    border: none;
-    border-top: 1px solid #eaeaea;
-    margin: 60px 0;
-
-    &.zero-margin-top {
-      margin-top: 0;
-    }
-  }
-
-  .left-gutter {
-    padding-left: 30px;
-  }
-  md-input-container.left-gutter {
-    label {
-      padding-left: 30px;
-    }
-    &.md-input-has-value {
-      label {
-        padding-left: 40px;
-      }
-    }
-    &.md-input-focused {
-      label {
-        padding-left: 40px;
-      }
-    }
-  }
-  .right-gutter {
-    padding-right: 30px;
-  }
-}
-
-.bottom-controls .md-button + .md-button {
-  margin-left: 20px;
 }
 
 @include breakpoint(medium) {
@@ -189,10 +125,6 @@ md-content {
 }
 
 @include breakpoint(small) {
-  .color-bg {
-    background: -webkit-gradient(linear, left top, left bottom, from(#5c6dbb), to(#7c5bbd));
-    background: linear-gradient(to bottom, #5c6dbb, #7c5bbd);
-  }
   .page-title {
     margin: 35px auto;
     font-size: 4.2rem;
@@ -205,26 +137,6 @@ md-content {
     }
     .content-card {
       padding: 20px;
-    }
-    .right-gutter {
-      padding-right: 10px;
-    }
-    md-input-container.left-gutter {
-      padding-left: 10px;
-      label {
-        padding-left: 10px;
-      }
-      &.md-input-has-value {
-        label {
-          padding-left: 15px;
-          //TODO ДЛЯ ЛЭЙБЛОВ СДЕЛАТь TRANSFORM А НЕ ПЭДИНГ
-        }
-      }
-      &.md-input-focused {
-        label {
-          padding-left: 15px;
-        }
-      }
     }
   }
 }
@@ -239,27 +151,8 @@ md-content {
       padding: 20px;
       box-shadow: none;
     }
-    .right-gutter {
-      padding-right: 0;
-    }
-    md-input-container.left-gutter {
-      padding-left: 0;
-      label {
-        padding-left: 0
-      }
-      &.md-input-has-value {
-        label {
-          padding-left: 0;
-        }
-      }
-      &.md-input-focused {
-        label {
-          padding-left: 0;
-        }
-      }
-    }
-    .page-title,
-    .page-subtitle {
+
+    .page-title {
       padding: 0 20px;
     }
   }
